@@ -97,5 +97,22 @@ h1 span {
   padding: 0 1rem;
   line-height: 1.6;
 }
+.edu-list {
+  display: grid;
+  grid-template-columns: 150px auto; /* left column fixed for years */
+  gap: 1rem 2rem; /* row gap and column gap */
+  margin-bottom: 2rem;
+}
 
+.edu-item {
+  display: contents; /* let child divs fill grid cells */
+}
+
+.edu-years {
+  font-weight: bold;
+}
+
+.edu-details {
+  line-height: 1.5;
+}
 
