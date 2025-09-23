@@ -29,6 +29,32 @@ header a {
 header a:hover {
   color: var(--accent-color);
 }
+/* HEADER */
+header {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 1rem 1rem; /* top right/left bottom */
+  font-weight: bold;
+  margin-bottom: 2rem; /* pushes content down */
+  border-bottom: 1px solid #ddd; /* subtle divider */
+}
+
+header a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+header a:hover {
+  color: var(--accent-color);
+}
+
+/* CONTAINER for all pages */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem 3rem; /* left/right + bottom spacing */
+}
 
 .about {
   max-width: 1100px;
@@ -71,3 +97,5 @@ h1 span {
   padding: 0 1rem;
   line-height: 1.6;
 }
+
+
