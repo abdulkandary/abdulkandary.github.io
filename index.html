@@ -1,15 +1,112 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Abdullah Alkandary</title>
-    <style>
-      body {
-        font-family: 'Helvetica', serif;
-      }
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Relaunching Soon 🚀</h1>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdullah Alkandary</title>
+  <style>
+    /* COLORS */
+    :root {
+      --bg-color: #f7f7f7;
+      --text-color: #000000;
+      --accent-color: #f28c82; /* salmon pink */
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif; /* placeholder */
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      font-weight: bold;
+    }
+
+    header a {
+      text-decoration: none;
+      color: var(--text-color);
+    }
+
+    header a:hover {
+      color: var(--accent-color);
+    }
+
+    .about {
+      max-width: 900px;
+      margin: 2rem auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .about img {
+      max-width: 100%;
+      border-radius: 50%;
+      border: 2px solid var(--accent-color);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 span {
+      color: var(--accent-color);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <a href="resume.html">Resume</a>
+    <a href="publications.html">Publications</a>
+    <a href="design.html">Graphic Design</a>
+  </header>
+
+  <!-- ABOUT SECTION -->
+  <section class="about">
+    <img src="your-photo.jpg" alt="Abdullah Alkandary">
+    <div>
+      <h1>ABOUT <span>ABDULLAH</span></h1>
+      <p>
+        I've spent the majority of my adult life navigating my passions in the arts and the sciences. 
+        I began my research journey with materials sciences back in 2015 and developed a keen passion 
+        on exploring the field ever since. My natural meditative state peaks when relating to another 
+        fellow biological being; when contemplating the fact that my ceramic- and fiber-reinforced polymer 
+        and lipid matrix, i.e., body, undergoes the same biochemical reactions.
+      </p>
+      <p>
+        Besides the natural sciences, there is no element more integral to my human experience than music. 
+        I sing and play the oud (ʿūd). Whether harmonizing with choirs or jamming with bands, I immerse 
+        myself in music wherever I tread.
+      </p>
+      <p>
+        I have a deep appreciation for nature that goes beyond mere observation. Hiking and camping allow 
+        me to immerse myself in the outdoors, connecting with the natural world on a personal level. 
+        Additionally, I enjoy exploring Philosophy and Near Eastern mythology, delving into the complexities 
+        of existence and ancient narratives as a source of intellectual stimulation.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    &copy; 2025 Abdullah Alkandary
+  </div>
+
+</body>
 </html>
