@@ -2,7 +2,7 @@
 :root {
   --bg-color: #f7f7f7;
   --text-color: #000000;
-  --accent-color: #f28c82; /* salmon pink */
+  --accent-color: #FF9D92; /* salmon pink */
 }
 
 /* BASE */
@@ -16,22 +16,48 @@ body {
 
 /* HEADER */
 header {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem 1rem 1rem; /* top right/left bottom */
-  font-weight: bold;
-  margin-bottom: 2rem; /* pushes content down */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* left, logo, right */
+  align-items: center;
+  padding: 1rem 2rem;
   border-bottom: 1px solid #ddd; /* subtle divider */
+  margin-bottom: 2rem; /* pushes content down */
 }
 
+.nav-left-wrapper {
+  justify-self: start;
+  margin-left: 200px;  /* adjust this value */
+}
+
+.logo {
+  justify-self: center;
+}
+
+.logo img {
+  height: 60px;   /* keeps logo consistent */
+  width: auto;    /* keeps proportions */
+}
+
+.nav-right-wrapper {
+  justify-self: end;
+  margin-right: 200px; /* adjust this value */
+}
+
+/* LINKS */
 header a {
   text-decoration: none;
   color: var(--text-color);
+  font-weight: bold;
 }
 
 header a:hover {
+  color: var(--accent-color); /* salmon pink hover link */
+  text-decoration: underline;
+}
+
+header a.active {
   color: var(--accent-color);
+  text-decoration: underline;
 }
 
 /* GLOBAL CONTAINER FOR CONSISTENT MARGINS */
@@ -54,7 +80,7 @@ header a:hover {
 
 .about img {
   max-width: 100%;
-  border-radius: 50%; /* circle crop */
+  border-radius: 0%; /* circle crop, 0% = no crop */
   object-fit: cover;
 }
 
@@ -100,29 +126,51 @@ h1 span {
   font-size: 0.9rem;
   color: #333;
 }
+
+/* LINKS */
 a {
   color: black;             /* hyperlinks color black and underlined*/
   text-decoration: underline;
 }
 
-a:hover {
-  color: var(--accent-color); /* salmon pink hover link */
-  text-decoration: underline;
-}
-p {
-  margin-bottom: 1.2em; /* normal is 1em, so this adds about half a line extra */
-}
+/* LISTS */
 li {
   margin-bottom: 0.6em; /* spacing between bullet entries */
 }
+
 li p {
   margin-bottom: 1em; /* spacing between list items */
 }
+
 ul, ol {
   margin-left: 0;   /* remove default left margin */
   padding-left: 1.2em; /* small padding so bullets/numbers don't overlap text */
 }
 
-li {
-  margin-bottom: 0.6em; /* extra half-line spacing between entries */
+/* PARAGRAPHS */
+p {
+  margin-bottom: 1.2em; /* normal is 1em, so this adds about half a line extra */
+}
+
+/* --- Social icon buttons (black & white SVGs) --- */
+.nav-right a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;              /* icon button size */
+  height: 32px;
+  color: var(--text-color); /* SVGs use currentColor -> black */
+  text-decoration: none;
+}
+.nav-right a svg {
+  width: 22px;              /* icon glyph size */
+  height: 22px;
+}
+.nav-right a:hover {
+  color: var(--accent-color); /* salmon on hover */
+}
+.nav-left a {
+  margin: 1rem; /* adjust value to increase spacing */
+  text-decoration: none;
+  color: inherit;
 }
