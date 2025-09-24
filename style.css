@@ -36,7 +36,7 @@ header a:hover {
 
 /* GLOBAL CONTAINER FOR CONSISTENT MARGINS */
 .container {
-  max-width: 720px;  /* adjust this until margins look like old site */
+  max-width: 320px;  /* adjust this until margins look like old site */
   margin: 0 auto;     /* centers the content */
   padding: 0 2rem;    /* consistent left/right padding inside container */
   line-height: 1.6;
