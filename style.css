@@ -196,7 +196,7 @@ p {
   }
 
   .profile-photo {
-    max-width: 150px; /* adjust as needed */
+    max-width: 50x; /* adjust as needed */
     height: auto;
     display: block;
     margin: 0 auto;
