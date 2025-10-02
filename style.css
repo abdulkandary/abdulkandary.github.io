@@ -154,50 +154,28 @@ p { margin-bottom: 1.2em; }
     top: 0; left: 0; right: 0;
     z-index: 1000;
     background-color: var(--bg-color);
+
     display: grid;
-    grid-template-columns: auto 1fr auto; /* logo | nav | socials */
+    grid-template-columns: auto 1fr; /* logo | socials */
     align-items: center;
     padding: 0.8rem 1rem;
   }
 
-  /* Push content below fixed header */
   body {
-    padding-top: 120px; /* added spacing below header */
+    padding-top: 100px; /* push content down below header */
   }
 
   /* Logo pinned left */
   .logo { justify-self: start; }
 
-  /* Pages inline right of logo */
-  .nav-left {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 1rem;
-    margin-left: 1rem;
-  }
+  /* Hide Resume & Publications */
+  .nav-left { display: none; }
 
-  /* Socials stacked far right */
+  /* Socials pinned right */
   .nav-right {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    justify-content: flex-end;
     gap: 0.5rem;
-  }
-
-  /* About stacked */
-  .about {
-    grid-template-columns: 100px 1fr;
-    gap: 1rem;
-  }
-  .about h1 {
-    font-size: 1.5rem;
-  }
-  .about h1 span {
-    margin-top: 0.3rem;
-  }
-  .about-text {
-    column-count: 1;
-    margin-top: 0.5rem;
   }
 }
