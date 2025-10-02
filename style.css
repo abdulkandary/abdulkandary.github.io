@@ -66,6 +66,13 @@ header a.active { color: var(--accent-color); text-decoration: underline; }
 .nav-right a svg { width: 26px; height: 26px; }
 .nav-right a:hover { color: var(--accent-color); }
 
+/* PROFILE PHOTO (default desktop) */
+.profile-photo {
+  max-width: 200px;
+  height: auto;
+  display: block;
+}
+
 /* EDUCATION / RESUME */
 h2 { margin: 1rem 0; }
 
@@ -98,12 +105,11 @@ h2 { margin: 1rem 0; }
   color: #333;
 }
 
-/* Publications page (scoped list alignment) */
+/* Publications page */
 .publications { max-width: 900px; margin: 2rem auto; padding: 0 2rem; }
 .publications h2 { margin: 2rem 0 1rem 0; text-align: left; }
 .publications ul { margin: 0; padding-left: 1.2rem; list-style-position: outside; }
 .publications li { margin-bottom: .6rem; text-align: left; }
-/* Publications hyperlinks */
 .publications a {
   color: black;
   text-decoration: underline;
@@ -122,38 +128,64 @@ h2 { margin: 1rem 0; }
 
 /* MOBILE ≤768px */
 @media (max-width: 768px) {
+  /* Header: logo left, Resume & Pub center, socials right */
   header {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
     background-color: var(--bg-color);
-    display: grid;
-    grid-template-columns: auto 1fr auto; /* logo | nav-left | socials */
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: .8rem 1rem;
     margin-bottom: 0;
   }
 
-  body { padding-top: 90px; }
+  body { padding-top: 100px; }
 
-  .logo { justify-self: start; }
-
-  /* Resume + Publications inline */
-  .nav-left {
-    display: flex;
-    flex-direction: row;   /* horizontal */
-    align-items: center;
-    justify-content: flex-start;
-    gap: 1rem;
-    margin-left: 1rem;
+  .logo {
+    flex: 0 0 auto;
+    margin-right: auto; /* pin far left */
   }
 
-  /* Socials inline on the far right */
+  /* Resume + Publications inline center */
+  .nav-left {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    margin-left: 2rem; /* spacing away from logo */
+  }
+
+  /* Socials inline far right */
   .nav-right {
     display: flex;
-    flex-direction: row;   /* horizontal */
-    align-items: center;
+    flex-direction: row;
     gap: 0.6rem;
   }
 
-  /* Education grid a bit narrower on mobile */
+  /* About section: smaller photo, single column text */
+  .about {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .profile-photo {
+    width: 100px;
+    height: auto;
+    display: block;
+  }
+
+  .about h1 { font-size: 1.5rem; margin: 0; }
+  .about h1 span { margin-top: 0.3rem; }
+
+  .about-text {
+    column-count: 1;
+    text-align: left;
+    margin-top: 0.5rem;
+  }
+
+  /* Education grid a bit narrower */
   .edu-entry { grid-template-columns: 110px auto; gap: .5rem 1rem; }
 }
