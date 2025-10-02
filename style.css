@@ -181,7 +181,7 @@ p {
     text-align: center;
   }
   .profile-photo {
-  max-width: 100px; /* or whatever size looks good */
+  max-width: 20px; /* or whatever size looks good */
   height: auto;
   display: block;
   margin: 0 auto; /* center on mobile */
