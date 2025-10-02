@@ -66,16 +66,16 @@ header a.active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;  /* bigger buttons */
+  width: 40px;
   height: 40px;
-  color: var(--accent-color); /* salmon */
+  color: var(--text-color); /* FIXED → always black */
   text-decoration: none;
 }
 .nav-right a svg {
-  width: 26px;  /* bigger icons */
+  width: 26px;
   height: 26px;
 }
-.nav-right a:hover { color: var(--text-color); }
+.nav-right a:hover { color: var(--accent-color); }
 
 /* ABOUT SECTION */
 .about {
@@ -101,8 +101,8 @@ header a.active {
 }
 .about h1 span {
   display: block;
-  color: var(--accent-color);
-  margin-top: 0.5rem;
+  color: var(--accent-color); /* “ABDULLAH” is salmon pink */
+  margin-top: 0.2rem; /* tightened spacing */
 }
 
 .about-text {
@@ -128,43 +128,45 @@ header a.active {
     background-color: var(--bg-color);
 
     display: grid;
-    grid-template-columns: auto 1fr; /* logo | everything else */
-    align-items: center;
+    grid-template-columns: auto 1fr; /* logo | right content */
+    align-items: start;
     padding: 0.5rem 1rem;
   }
 
-  body { padding-top: 90px; }
+  body { padding-top: 110px; } /* pushes content down below header */
 
   .logo { justify-self: start; }
 
-  /* Pages on right of logo */
+  /* Resume & Publications stacked beside logo */
   .nav-left {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    margin-left: 0.5rem;
   }
 
-  /* Socials stacked under links */
+  /* Socials stacked far right */
   .nav-right {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 0.3rem;
-    margin-top: 0.3rem;
   }
 
-  /* About section stacked */
+  /* About section: photo left, text right */
   .about {
     grid-template-columns: 100px 1fr;
     gap: 1rem;
   }
 
   .about h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    margin: 0;
+    line-height: 1.2;
   }
   .about h1 span {
-    margin-top: 0.3rem;
+    margin-top: 0.2rem; /* tighten gap between ABOUT and ABDULLAH */
   }
 
   .about-text {
