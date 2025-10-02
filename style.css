@@ -185,27 +185,30 @@ p {
     background-color: var(--bg-color);
 
     display: grid;
-    grid-template-columns: auto auto 1fr; /* logo, nav links, social */
+    grid-template-columns: auto 1fr auto; /* logo | nav-left | social */
     align-items: center;
     padding: 0.5rem 1rem;
-    text-align: left;
   }
 
   body {
-    padding-top: 80px; /* offset for fixed header */
+    padding-top: 80px; /* keeps content below fixed header */
+    margin: 0;
   }
 
+  /* shrink and center the about photo */
   .profile-photo {
-    max-width: 50x; /* adjust as needed */
+    max-width: 80px;
     height: auto;
     display: block;
-    margin: 0 auto;
+    margin: 1rem auto;
   }
 
+  /* logo pinned left */
   .logo {
     justify-self: start;
   }
 
+  /* nav links stacked vertically */
   .nav-left-wrapper {
     justify-self: start;
     margin: 0;
@@ -217,13 +220,32 @@ p {
     gap: 0.3rem;
     align-items: flex-start;
   }
+  .nav-left a {
+    margin: 0;
+  }
 
+  /* social icons stacked right */
   .nav-right-wrapper {
     justify-self: end;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 0.5rem;
+  }
+
+  .nav-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: flex-end;
+  }
+
+  /* content margins */
+  .container,
+  .about {
+    padding: 0 1.5rem;
+    margin: 1rem auto;
+    max-width: 100%;
   }
 
   .about {
