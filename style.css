@@ -177,71 +177,66 @@ p {
 /* --- Mobile optimization --- */
 @media (max-width: 768px) {
   header {
-    grid-template-columns: 1fr;  /* stack logo and nav */
-    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: var(--bg-color);
+
+    display: grid;
+    grid-template-columns: auto auto 1fr; /* logo, nav links, social */
+    align-items: center;
+    padding: 0.5rem 1rem;
+    text-align: left;
   }
+
+  body {
+    padding-top: 80px; /* offset for fixed header */
+  }
+
   .profile-photo {
-  max-width: 20px; /* or whatever size looks good */
-  height: auto;
-  display: block;
-  margin: 0 auto; /* center on mobile */
-}
-  .nav-left-wrapper,
+    max-width: 150px; /* adjust as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .logo {
+    justify-self: start;
+  }
+
+  .nav-left-wrapper {
+    justify-self: start;
+    margin: 0;
+  }
+
+  .nav-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: flex-start;
+  }
+
   .nav-right-wrapper {
-    margin: 0;        /* remove fixed margins */
-    justify-self: center;
+    justify-self: end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
   }
 
   .about {
-    grid-template-columns: 1fr; /* image on top, text below */
+    grid-template-columns: 1fr;
     gap: 1rem;
   }
 
   .about-text {
-    column-count: 1;   /* single column for readability */
+    column-count: 1;
     text-align: left;
   }
 
   h1 {
-    font-size: 1.5rem;  /* slightly smaller for mobile */
+    font-size: 1.5rem;
   }
-}
-/* MOBILE HEADER FIX */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background-color: var(--bg-color);
-
-  display: grid;
-  grid-template-columns: auto auto 1fr; /* logo, nav links, social */
-  align-items: center;
-  padding: 0.5rem 1rem;
-}
-
-/* prevent content hiding behind header */
-body {
-  padding-top: 80px; /* adjust to your header height */
-}
-
-.logo {
-  justify-self: start;
-}
-
-.nav-left-wrapper {
-  justify-self: start;
-  margin: 0;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.nav-right-wrapper {
-  justify-self: end;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.5rem;
 }
