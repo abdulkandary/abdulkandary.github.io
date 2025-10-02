@@ -209,3 +209,4 @@ p {
     gap: 0.4rem;
   }
 }
+header { border: 3px solid red; }
