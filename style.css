@@ -177,43 +177,44 @@ p {
 /* --- Mobile (≤768px) --- */
 @media (max-width: 768px) {
   header {
-    position: fixed; 
+    position: fixed !important;
     top: 0; left: 0; right: 0;
     z-index: 1000;
-    background-color: var(--bg-color);
+    background-color: var(--bg-color) !important;
 
-    display: grid;
-    grid-template-columns: auto 1fr auto; /* logo | nav links | socials */
-    align-items: start; /* align top of cells */
-    padding: 0.5rem 1rem;
+    display: grid !important;
+    grid-template-columns: auto 1fr auto !important; /* logo | nav | socials */
+    align-items: start !important;
+    padding: 0.5rem 1rem !important;
   }
 
-  body { padding-top: 120px; } /* offset for fixed header */
+  body { padding-top: 120px !important; }
 
-  /* logo far left */
-  .logo { justify-self: start; }
+  /* logo pinned left */
+  .logo { justify-self: start !important; }
 
-  /* nav links stacked under each other */
-  .nav-left-wrapper { justify-self: start; margin: 0; }
+  /* links stacked just to the right of logo */
+  .nav-left-wrapper { justify-self: start !important; margin: 0 !important; }
   .nav-left { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 0.4rem; 
-    align-items: flex-start; 
+    display: flex !important; 
+    flex-direction: column !important; 
+    gap: 0.4rem !important; 
+    align-items: flex-start !important; 
+    margin-left: 1rem !important; /* small gap between logo + links */
   }
 
   /* socials stacked on far right */
   .nav-right-wrapper { 
-    justify-self: end; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-end; 
-    gap: 0.4rem; 
+    justify-self: end !important; 
+    display: flex !important; 
+    flex-direction: column !important; 
+    align-items: flex-end !important; 
+    gap: 0.4rem !important; 
   }
   .nav-right { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-end; 
-    gap: 0.4rem; 
+    display: flex !important; 
+    flex-direction: column !important; 
+    align-items: flex-end !important; 
+    gap: 0.4rem !important; 
   }
 }
