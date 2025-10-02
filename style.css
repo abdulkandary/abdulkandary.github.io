@@ -174,95 +174,37 @@ p {
   text-decoration: none;
   color: inherit;
 }
-/* --- Mobile optimization --- */
+/* --- Mobile (≤768px) --- */
 @media (max-width: 768px) {
+  /* fixed header, correct left/center/right layout */
   header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
     background-color: var(--bg-color);
-
     display: grid;
-    grid-template-columns: auto 1fr auto; /* logo | nav-left | social */
+    grid-template-columns: auto 1fr auto; /* logo | links | social */
     align-items: center;
     padding: 0.5rem 1rem;
   }
-  body {
-  margin: 0;
-  padding-top: 500px; /* make space for fixed header */
-}
 
-  body {
-    padding-top: 80px; /* keeps content below fixed header */
-    margin: 0;
-  }
+  /* push page content below fixed header */
+  body { padding-top: 90px; }
 
-  /* shrink and center the about photo */
-  .profile-photo {
-    max-width: 50px;
-    height: auto;
-    display: block;
-    margin: 1rem auto;
-  }
+  /* nav: logo left, links stacked, social stacked right */
+  .logo { justify-self: start; }
+  .nav-left-wrapper { justify-self: start; margin: 0; }
+  .nav-left { display: flex; flex-direction: column; gap: 0.3rem; align-items: flex-start; }
+  .nav-left a { margin: 0; }
 
-  /* logo pinned left */
-  .logo {
-    justify-self: start;
-  }
+  .nav-right-wrapper { justify-self: end; display: flex; flex-direction: column; align-items: flex-end; gap: 0.4rem; }
+  .nav-right { display: flex; flex-direction: column; gap: 0.4rem; align-items: flex-end; }
 
-  /* nav links stacked vertically */
-  .nav-left-wrapper {
-    justify-self: start;
-    margin: 0;
-  }
+  /* margins like your resume/publications pages */
+  .container, .about { padding: 0 1.5rem; margin: 1rem auto; max-width: 100%; }
 
-  .nav-left {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    align-items: flex-start;
-  }
-  .nav-left a {
-    margin: 0;
-  }
+  /* about layout + photo size on mobile */
+  .about { grid-template-columns: 1fr; gap: 1rem; }
+  .about-text { column-count: 1; text-align: left; }
+  .profile-photo { max-width: 120px; height: auto; display: block; margin: 1rem auto; }
 
-  /* social icons stacked right */
-  .nav-right-wrapper {
-    justify-self: end;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.5rem;
-  }
-
-  .nav-right {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    align-items: flex-end;
-  }
-
-  /* content margins */
-  .container,
-  .about {
-    padding: 0 1.5rem;
-    margin: 1rem auto;
-    max-width: 100%;
-  }
-
-  .about {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .about-text {
-    column-count: 1;
-    text-align: left;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
+  h1 { font-size: 1.5rem; }
 }
