@@ -1,11 +1,11 @@
-/* ===== COLORS ===== */
+/* COLORS */
 :root {
   --bg-color: #f7f7f7;
   --text-color: #000000;
   --accent-color: #FF9D92; /* salmon pink */
 }
 
-/* ===== BASE ===== */
+/* BASE */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -14,71 +14,71 @@ body {
   line-height: 1.6;
 }
 
-/* ===== HEADER (Desktop) ===== */
+/* HEADER - Desktop */
 header {
   display: grid;
-  grid-template-columns: 1fr auto 1fr; /* nav | logo | socials */
+  grid-template-columns: 1fr auto 1fr; /* left | logo | right */
   align-items: center;
   padding: 1rem 2rem;
   border-bottom: 1px solid #ddd;
   margin-bottom: 2rem;
 }
 
-/* Left nav (Resume + Publications) */
 .nav-left {
   display: flex;
-  gap: 2rem;
-  justify-content: flex-start;
+  gap: 2rem;               /* spacing between Resume & Publications */
+  margin-left: 1.5rem;     /* keep away from left edge */
 }
 
-/* Logo centered */
 .logo {
   justify-self: center;
 }
+
 .logo img {
   height: 60px;
   width: auto;
 }
 
-/* Right nav (social icons) */
 .nav-right {
   display: flex;
   gap: 1rem;
   justify-content: flex-end;
 }
+
+/* LINKS */
+header a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+header a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+header a.active {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+/* SOCIAL ICONS */
 .nav-right a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
-  color: var(--text-color); /* black */
+  color: var(--text-color);   /* default black */
   text-decoration: none;
-}
-.nav-right a:hover {
-  color: var(--accent-color); /* salmon on hover */
 }
 .nav-right a svg {
   width: 26px;
   height: 26px;
 }
+.nav-right a:hover { color: var(--accent-color); }
 
-/* ===== LINKS ===== */
-header a {
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: bold;
-}
-header a:hover {
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-header a.active {
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-
-/* ===== ABOUT SECTION ===== */
+/* ABOUT SECTION */
 .about {
   max-width: 900px;
   margin: 2rem auto;
@@ -113,41 +113,29 @@ header a.active {
   margin-top: 1rem;
 }
 
-/* ===== FOOTER ===== */
+/* PUBLICATIONS SECTION */
+.publications h2 {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.publications ul {
+  margin-left: 0;
+  padding-left: 1.2rem;  /* clean bullet alignment */
+}
+
+.publications li {
+  margin-bottom: 0.6rem;
+}
+
+/* FOOTER */
 .footer {
   text-align: center;
   padding: 2rem;
   font-size: 0.9rem;
 }
 
-/* ===== RESUME SECTION ===== */
-.edu-entry {
-  display: grid;
-  grid-template-columns: 150px auto;
-  margin-bottom: 1rem;
-}
-.edu-year {
-  font-weight: bold;
-}
-.edu-detail {
-  font-size: 1rem;
-}
-.edu-sub {
-  margin-top: 0.2rem;
-  font-size: 0.9rem;
-  color: #333;
-}
-
-/* ===== LISTS & PARAGRAPHS ===== */
-li { margin-bottom: 0.6em; }
-li p { margin-bottom: 1em; }
-ul, ol {
-  margin-left: 0;
-  padding-left: 1.2em;
-}
-p { margin-bottom: 1.2em; }
-
-/* ===== MOBILE (≤768px) ===== */
+/* --- Mobile ≤768px --- */
 @media (max-width: 768px) {
   header {
     position: fixed;
@@ -156,31 +144,50 @@ p { margin-bottom: 1.2em; }
     background-color: var(--bg-color);
 
     display: grid;
-    grid-template-columns: auto 1fr auto; 
-    /* logo | nav-left | socials */
-    align-items: start;
-    padding: 0.8rem 1rem;
+    grid-template-columns: auto 1fr auto; /* logo | nav | socials */
+    align-items: center;
+    padding: 0.5rem 1rem;
   }
 
-  body { padding-top: 100px; }
+  body { padding-top: 90px; }
 
   /* logo pinned left */
   .logo { justify-self: start; }
 
-  /* Resume + Publications stacked vertically, right-aligned */
+  /* Resume + Publications stacked to right of logo */
   .nav-left {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* right-align them */
+    align-items: flex-end;
     gap: 0.4rem;
-    margin-left: 1rem;
+    margin-right: 1.5rem;  /* padding from right edge */
+    margin-left: 0;
   }
 
-  /* socials pinned far right */
+  /* Socials stacked far right */
   .nav-right {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: 0.5rem;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.3rem;
+    margin-left: auto;
+  }
+
+  /* About layout compact */
+  .about {
+    grid-template-columns: 100px 1fr;
+    gap: 1rem;
+  }
+
+  .about h1 {
+    font-size: 1.5rem;
+  }
+  .about h1 span {
+    margin-top: 0.3rem;
+  }
+
+  .about-text {
+    column-count: 1;
+    margin-top: 0.5rem;
   }
 }
