@@ -156,24 +156,26 @@ p { margin-bottom: 1.2em; }
     background-color: var(--bg-color);
 
     display: grid;
-    grid-template-columns: auto 1fr auto; /* logo | spacer | socials */
+    grid-template-columns: auto auto 1fr auto; 
+    /* logo | nav-left | spacer | socials */
     align-items: center;
     padding: 0.8rem 1rem;
   }
 
-  body {
-    padding-top: 100px; /* push content below fixed header */
+  body { padding-top: 100px; }
+
+  /* logo pinned left */
+  .logo { justify-self: start; }
+
+  /* Resume + Publications inline, right of logo */
+  .nav-left {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-left: 1rem; /* space between logo + links */
   }
 
-  /* Logo hard-left */
-  .logo {
-    justify-self: start;
-  }
-
-  /* Hide Resume & Publications on mobile */
-  .nav-left { display: none; }
-
-  /* Socials hard-right, same row */
+  /* socials hard right */
   .nav-right {
     display: flex;
     flex-direction: row;
