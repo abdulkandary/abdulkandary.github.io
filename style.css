@@ -14,32 +14,20 @@ body {
   line-height: 1.6;
 }
 
-/* HEADER (Desktop default) */
+/* HEADER (Desktop default: Pages | Logo | Socials) */
 header {
   display: grid;
-  grid-template-columns: 1fr auto 1fr; /* pages | logo | socials */
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 1rem 2rem;
   border-bottom: 1px solid #ddd;
   margin-bottom: 2rem;
 }
 
-.nav-left-wrapper {
-  justify-self: start;
-}
-
-.logo {
-  justify-self: center;
-}
-
-.logo img {
-  height: 60px;
-  width: auto;
-}
-
-.nav-right-wrapper {
-  justify-self: end;
-}
+.nav-left-wrapper { justify-self: start; }
+.logo { justify-self: center; }
+.logo img { height: 60px; width: auto; }
+.nav-right-wrapper { justify-self: end; }
 
 /* LINKS */
 header a {
@@ -47,52 +35,48 @@ header a {
   color: var(--text-color);
   font-weight: bold;
 }
+header a:hover { color: var(--accent-color); text-decoration: underline; }
+header a.active { color: var(--accent-color); text-decoration: underline; }
 
-header a:hover {
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-
-header a.active {
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-
-/* GLOBAL CONTAINER */
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  line-height: 1.6;
-}
-
-/* ABOUT PAGE */
+/* ABOUT PAGE (Desktop) */
 .about {
   max-width: 900px;
   margin: 2rem auto;
   display: grid;
-  grid-template-columns: 1fr 2fr; /* photo | text */
+  grid-template-columns: 220px 1fr; /* photo | content */
   gap: 2rem;
   align-items: start;
   padding: 0 2rem;
 }
 
 .about img {
-  max-width: 100%;
-  border-radius: 0%;
+  width: 100%;
+  height: auto;
   object-fit: cover;
+  display: block;
 }
 
-h1 {
+.about-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-content h1 {
+  margin: 0;
   font-size: 2rem;
-  margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
-h1 span {
-  color: var(--accent-color);
+.about-content h1:first-child {
+  font-weight: normal; /* ABOUT */
+}
+
+.about-content h1:last-child {
+  color: var(--accent-color); /* ABDULLAH */
 }
 
 .about-text {
+  margin-top: 1rem;
   column-count: 2;
   column-gap: 2rem;
   text-align: justify;
@@ -103,66 +87,6 @@ h1 span {
   text-align: center;
   padding: 2rem;
   font-size: 0.9rem;
-}
-
-/* EDUCATION / RESUME */
-.edu-entry {
-  display: grid;
-  grid-template-columns: 150px auto;
-  margin-bottom: 1rem;
-}
-
-.edu-year {
-  font-weight: bold;
-}
-
-.edu-detail {
-  font-size: 1rem;
-}
-
-.edu-sub {
-  margin-top: 0.2rem;
-  font-size: 0.9rem;
-  color: #333;
-}
-
-/* LINKS */
-a {
-  color: black;
-  text-decoration: underline;
-}
-
-/* LISTS */
-li { margin-bottom: 0.6em; }
-li p { margin-bottom: 1em; }
-ul, ol {
-  margin-left: 0;
-  padding-left: 1.2em;
-}
-
-/* PARAGRAPHS */
-p { margin-bottom: 1.2em; }
-
-/* SOCIAL ICONS */
-.nav-right a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  color: var(--text-color);
-  text-decoration: none;
-}
-.nav-right a svg {
-  width: 22px;
-  height: 22px;
-}
-.nav-right a:hover { color: var(--accent-color); }
-
-.nav-left a {
-  margin: 1rem;
-  text-decoration: none;
-  color: inherit;
 }
 
 /* --- Mobile layout ≤768px --- */
@@ -181,10 +105,7 @@ p { margin-bottom: 1.2em; }
 
   body { padding-top: 100px; }
 
-  /* logo pinned left */
   .logo { justify-self: start; }
-
-  /* Pages stacked in the middle */
   .nav-left-wrapper {
     justify-self: center;
     margin: 0;
@@ -195,8 +116,6 @@ p { margin-bottom: 1.2em; }
     align-items: center;
     gap: 0.4rem;
   }
-
-  /* Socials stacked right */
   .nav-right-wrapper {
     justify-self: end;
     display: flex;
@@ -211,22 +130,23 @@ p { margin-bottom: 1.2em; }
     gap: 0.4rem;
   }
 
-  /* About section single column on mobile */
+  /* About section mobile */
   .about {
     grid-template-columns: 1fr;
     max-width: 100%;
     padding: 0 1.5rem;
     gap: 1rem;
   }
-  .about-text {
-    column-count: 1;
-    text-align: left;
-  }
-
-  /* Photo smaller on mobile */
   .about img {
     max-width: 60%;
     margin: 0 auto;
-    display: block;
+  }
+  .about-content h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .about-text {
+    column-count: 1;
+    text-align: left;
   }
 }
