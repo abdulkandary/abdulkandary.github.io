@@ -189,6 +189,10 @@ p {
     align-items: center;
     padding: 0.5rem 1rem;
   }
+  body {
+  margin: 0;
+  padding-top: 90px; /* make space for fixed header */
+}
 
   body {
     padding-top: 80px; /* keeps content below fixed header */
@@ -197,7 +201,7 @@ p {
 
   /* shrink and center the about photo */
   .profile-photo {
-    max-width: 80px;
+    max-width: 50px;
     height: auto;
     display: block;
     margin: 1rem auto;
