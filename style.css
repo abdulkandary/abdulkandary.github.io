@@ -180,7 +180,12 @@ p {
     grid-template-columns: 1fr;  /* stack logo and nav */
     text-align: center;
   }
-
+  .profile-photo {
+  max-width: 100px; /* or whatever size looks good */
+  height: auto;
+  display: block;
+  margin: 0 auto; /* center on mobile */
+}
   .nav-left-wrapper,
   .nav-right-wrapper {
     margin: 0;        /* remove fixed margins */
