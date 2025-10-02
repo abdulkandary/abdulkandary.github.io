@@ -206,3 +206,42 @@ p {
     font-size: 1.5rem;  /* slightly smaller for mobile */
   }
 }
+/* MOBILE HEADER FIX */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: var(--bg-color);
+
+  display: grid;
+  grid-template-columns: auto auto 1fr; /* logo, nav links, social */
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+/* prevent content hiding behind header */
+body {
+  padding-top: 80px; /* adjust to your header height */
+}
+
+.logo {
+  justify-self: start;
+}
+
+.nav-left-wrapper {
+  justify-self: start;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-right-wrapper {
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
