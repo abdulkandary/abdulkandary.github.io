@@ -174,3 +174,30 @@ p {
   text-decoration: none;
   color: inherit;
 }
+/* --- Mobile optimization --- */
+@media (max-width: 768px) {
+  header {
+    grid-template-columns: 1fr;  /* stack logo and nav */
+    text-align: center;
+  }
+
+  .nav-left-wrapper,
+  .nav-right-wrapper {
+    margin: 0;        /* remove fixed margins */
+    justify-self: center;
+  }
+
+  .about {
+    grid-template-columns: 1fr; /* image on top, text below */
+    gap: 1rem;
+  }
+
+  .about-text {
+    column-count: 1;   /* single column for readability */
+    text-align: left;
+  }
+
+  h1 {
+    font-size: 1.5rem;  /* slightly smaller for mobile */
+  }
+}
