@@ -183,24 +183,32 @@ p {
     background-color: var(--bg-color);
 
     display: grid;
-    grid-template-columns: auto 1fr auto; /* logo | nav | socials */
+    grid-template-columns: auto auto 1fr; /* logo | nav | socials */
     align-items: center;
     padding: 0.5rem 1rem;
   }
 
   body { padding-top: 120px; }
 
-  .logo { justify-self: start; }
+  /* logo pinned left */
+  .logo {
+    justify-self: start;
+  }
 
-  .nav-left-wrapper { justify-self: start; margin: 0; }
+  /* Resume + Publications stacked just to the right of logo */
+  .nav-left-wrapper {
+    justify-self: start;
+    margin: 0;
+  }
   .nav-left {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.4rem;
-    margin-left: 1rem; /* gap between logo + links */
+    margin-left: 0.5rem; /* small gap between logo + links */
   }
 
+  /* Socials stacked on far right */
   .nav-right-wrapper {
     justify-self: end;
     display: flex;
@@ -208,5 +216,11 @@ p {
     align-items: flex-end;
     gap: 0.4rem;
   }
+  .nav-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+  }
 }
-header { border: 3px solid red; }
+header { border: 3px solid blueviolet; }
