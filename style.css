@@ -176,36 +176,66 @@ p {
 }
 /* --- Mobile (≤768px) --- */
 @media (max-width: 768px) {
-  /* fixed header, correct left/center/right layout */
+  /* header fixed with proper layout */
   header {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    position: fixed; 
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
     background-color: var(--bg-color);
     display: grid;
-    grid-template-columns: auto 1fr auto; /* logo | links | social */
+    grid-template-columns: auto 1fr auto; /* logo | nav | social */
     align-items: center;
     padding: 0.5rem 1rem;
   }
 
-  /* push page content below fixed header */
+  /* push content below header */
   body { padding-top: 120px; }
 
-  /* nav: logo left, links stacked, social stacked right */
+  /* logo on far left */
   .logo { justify-self: start; }
+
+  /* links stacked next to logo */
   .nav-left-wrapper { justify-self: start; margin: 0; }
-  .nav-left { display: flex; flex-direction: column; gap: 0.3rem; align-items: flex-start; }
+  .nav-left { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.4rem; 
+    align-items: flex-start; 
+  }
   .nav-left a { margin: 0; }
 
-  .nav-right-wrapper { justify-self: end; display: flex; flex-direction: column; align-items: flex-end; gap: 0.4rem; }
-  .nav-right { display: flex; flex-direction: column; gap: 0.4rem; align-items: flex-end; }
+  /* socials stacked on far right */
+  .nav-right-wrapper { 
+    justify-self: end; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end; 
+    gap: 0.4rem; 
+  }
+  .nav-right { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end; 
+    gap: 0.4rem; 
+  }
 
-  /* margins like your resume/publications pages */
-  .container, .about { padding: 0 1.5rem; margin: 1rem auto; max-width: 100%; }
-
-  /* about layout + photo size on mobile */
+  /* about section spacing */
+  .container, .about { 
+    padding: 0 1.5rem; 
+    margin: 1rem auto; 
+    max-width: 100%; 
+  }
   .about { grid-template-columns: 1fr; gap: 1rem; }
   .about-text { column-count: 1; text-align: left; }
-  .profile-photo { max-width: 50px; height: auto; display: block; margin: 1rem auto; }
 
+  /* photo smaller on mobile */
+  .profile-photo { 
+    width: 150px;   /* adjust size here */
+    height: auto; 
+    display: block; 
+    margin: 1rem auto; 
+  }
+
+  /* smaller heading */
   h1 { font-size: 1.5rem; }
 }
-body { background: pink !important; }
