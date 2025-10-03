@@ -145,7 +145,7 @@ h2 { margin: 1rem 0; }
     background-color: var(--bg-color);
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: left;
     padding: .8rem 1rem;
     margin-bottom: 0;
   }
@@ -208,22 +208,6 @@ h2 { margin: 1rem 0; }
   color: var(--accent-color); /* salmon pink */
 }
 
-/* Responsive: stack photo on top for small screens */
-@media (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-photo img {
-    width: 50%;   /* bigger photo on mobile */
-    margin-bottom: 1rem;
-  }
-
-  .about-text {
-    text-align: center;
-  }
-}
 /* ========================
    ABOUT GRID
 ======================== */
@@ -308,26 +292,66 @@ h2 { margin: 1rem 0; }
   grid-column: 5; /* right text column */
   grid-row: 2;
 }
-
-/* Responsive */
+/* MOBILE ≤768px */
 @media (max-width: 768px) {
+  /* ===== Header ===== */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .8rem 1rem;
+    margin-bottom: 0;
+  }
+
+  body { padding-top: 100px; }
+
+  .logo {
+    flex: 0 0 auto;
+    margin-right: auto; /* pin far left */
+  }
+
+  .nav-left {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    margin-left: 2rem;
+  }
+
+  .nav-right {
+    display: flex;
+    flex-direction: row;
+    gap: 0.6rem;
+  }
+
+  .edu-entry { 
+    grid-template-columns: 110px auto; 
+    gap: .5rem 1rem; 
+  }
+
+  /* ===== About Section ===== */
   .about-grid {
     grid-template-columns: 1fr; 
     grid-template-rows: auto auto auto auto; 
-    justify-items: center;   /* centers the paragraph blocks */
+    justify-items: stretch;   /* let children span full width */
+    padding: 1.5rem;
   }
 
   .about-photo { grid-row: 1; }
   .about-title { grid-row: 2; }
 
-  /* Paragraph blocks */
   .about-text:nth-of-type(1),
   .about-text:nth-of-type(2) {
     grid-column: 1;
-    width: 90%;            
-    max-width: 600px;      
-    margin: 0 auto;        /* block centered */
-    text-align: left !important;  /* force text left */
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;     /* ✅ left align text */
+    align-self: start;    
+    justify-self: stretch;
   }
 
   .about-text:nth-of-type(1) { grid-row: 3; }
