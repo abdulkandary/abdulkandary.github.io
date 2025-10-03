@@ -171,30 +171,165 @@ h2 { margin: 1rem 0; }
     flex-direction: row;
     gap: 0.6rem;
   }
+    /* Education grid a bit narrower */
+  .edu-entry { grid-template-columns: 110px auto; gap: .5rem 1rem; }
+}
+/* ========================
+   ABOUT SECTION
+======================== */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
 
-  /* About section: smaller photo, single column text */
-  .about {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 1rem;
-    align-items: start;
+.about-photo img {
+  width: 12%;       /* photo = 25% of page width */
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.about-text {
+  flex: 1;          /* take the rest of the space */
+  text-align: left;
+}
+
+.about-text h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.about-text .highlight {
+  color: var(--accent-color); /* salmon pink */
+}
+
+/* Responsive: stack photo on top for small screens */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .profile-photo {
-    width: 100px;
-    height: auto;
-    display: block;
+  .about-photo img {
+    width: 50%;   /* bigger photo on mobile */
+    margin-bottom: 1rem;
   }
-
-  .about h1 { font-size: 1.5rem; margin: 0; }
-  .about h1 span { margin-top: 0.3rem; }
 
   .about-text {
-    column-count: 1;
-    text-align: left;
-    margin-top: 0.5rem;
+    text-align: center;
+  }
+}
+/* ========================
+   ABOUT GRID
+======================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 100fr 100fr 2fr 2fr; /* same weighting */
+  grid-template-rows: auto auto; /* two rows */
+  gap: 1rem 1.2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  align-items: start;
+}
+
+/* Row 1: photo + title */
+.about-photo {
+  grid-column: 1;
+  grid-row: 1;
+}
+.about-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.about-title {
+  display: flex;
+  flex-direction: column;   /* force them into two lines */
+  align-items: flex-start;  /* left align next to photo */
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.about-title h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.about-title .highlight {
+  color: var(--accent-color);  /* salmon pink */
+}
+/* Wrapper for photo + titles */
+.about-header {
+  display: flex;
+  grid-template-columns: 2fr 4fr; /* A=photo (narrow), B=title (wider) */
+  align-items: flex-end;
+  gap: 0.5rem;
+  grid-column: span 6;  /* spans the full top row of your main grid */
+}
+
+/* Photo */
+.about-photo img {
+  width: 100px;   /* or % if you want responsive */
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Title block */
+.about-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about-title h1 {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.about-title .highlight {
+  color: var(--accent-color);
+}
+/* Row 2: paragraphs */
+.about-text:nth-of-type(1) {
+  grid-column: 4; /* left text column */
+  grid-row: 2;
+}
+.about-text:nth-of-type(2) {
+  grid-column: 5; /* right text column */
+  grid-row: 2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr; 
+    grid-template-rows: auto auto auto auto; 
+    justify-items: center;   /* centers the paragraph blocks */
   }
 
-  /* Education grid a bit narrower */
-  .edu-entry { grid-template-columns: 110px auto; gap: .5rem 1rem; }
+  .about-photo { grid-row: 1; }
+  .about-title { grid-row: 2; }
+
+  /* Paragraph blocks */
+  .about-text:nth-of-type(1),
+  .about-text:nth-of-type(2) {
+    grid-column: 1;
+    width: 90%;            
+    max-width: 600px;      
+    margin: 0 auto;        /* block centered */
+    text-align: left !important;  /* force text left */
+  }
+
+  .about-text:nth-of-type(1) { grid-row: 3; }
+  .about-text:nth-of-type(2) { grid-row: 4; }
 }
