@@ -108,8 +108,17 @@ h2 { margin: 1rem 0; }
 /* Publications page */
 .publications { max-width: 900px; margin: 2rem auto; padding: 0 2rem; }
 .publications h2 { margin: 2rem 0 1rem 0; text-align: left; }
-.publications ul { margin: 0; padding-left: 1.2rem; list-style-position: outside; }
-.publications li { margin-bottom: .6rem; text-align: left; }
+.publications ol,
+.publications ul {
+  margin: 0;
+  padding-left: 0;   /* no indent */
+  list-style-position: inside; /* numbers/bullets aligned with text */
+}
+
+.publications li {
+  margin-bottom: .6rem;
+  text-align: left;
+}
 .publications a {
   color: black;
   text-decoration: underline;
